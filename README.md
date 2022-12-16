@@ -6,7 +6,9 @@ Se tienen terminales en diferentes estados de la República, las cuales son orig
 
 ![tripsSpringBootDBdeer.png](./imgs/tripsSpringBootDBdeer.png)
 
+### Desarrollo
 
+Se crea un proyecto Spring Boot con las dependencias Spring Web, Spring JPA y MySQL Driver y Se configura el acceso a la base de datos en application.properties.
 
 
 
