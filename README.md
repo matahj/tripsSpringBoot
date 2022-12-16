@@ -11,7 +11,11 @@ Se tienen terminales en diferentes estados de la República, las cuales son orig
 
 1. Se crea un proyecto Spring Boot con las dependencias Spring Web, Spring JPA y MySQL Driver.
 2. Se configura el acceso a la base de datos (previamente creada) en application.properties.
-3. Se crean las entidades en com.trips.tripsspringboot.entity.
+3. Se crean las entidades en com.trips.tripsspringboot.entity y se verifica que se se crean las tablas en la base de datos (previamente creada).
+4. Se crean las interfaces que "extends" de JpaRepository para poder hacer las consultas. Se crean en com.trips.tripsspringboot.repository.
+5. Se crea un seeder en com.trips.tripsspringboot.config para insertar datos en las tablas, con ayuda de las interfaces en repository.
+6. Se crean controladores en com.trips.tripsspringboot.controller para los "end points" del api. Los controladores se comunican con los servicios (interfaces y sus implementaciones) y estos con los repositorios (interfaces).
+7. 
 
 
 
