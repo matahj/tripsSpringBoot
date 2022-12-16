@@ -9,7 +9,9 @@ Se tienen terminales en diferentes estados de la República, las cuales son orig
 
 ### Desarrollo
 
-Se crea un proyecto Spring Boot con las dependencias Spring Web, Spring JPA y MySQL Driver y Se configura el acceso a la base de datos (previamente creada) en application.properties.
+1. Se crea un proyecto Spring Boot con las dependencias Spring Web, Spring JPA y MySQL Driver.
+2. Se configura el acceso a la base de datos (previamente creada) en application.properties.
+3. Se crean las entidades en com.trips.tripsspringboot.entity.
 
 
 
