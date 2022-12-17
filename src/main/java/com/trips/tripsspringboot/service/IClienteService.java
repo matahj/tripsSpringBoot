@@ -10,4 +10,7 @@ public interface IClienteService {
     Optional<Cliente> getOneById(long id);
 
     Cliente create(Cliente cliente);
+
+    void delete(long id);
+
 }

@@ -32,4 +32,9 @@ public class ClienteServiceImpl implements IClienteService {
         return clienteRepository.save(cliente);
     }
 
+    @Override
+    public void delete(long id) {
+        clienteRepository.deleteById(id);
+    }
+
 }
