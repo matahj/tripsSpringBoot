@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface ITerminalService {
     List<Terminal> getAll();
     Optional<Terminal> getOneById(long idTerminal);
+    Terminal create(Terminal terminal);
 }

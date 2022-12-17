@@ -2,9 +2,8 @@ package com.trips.tripsspringboot.controller;
 
 import com.trips.tripsspringboot.entity.Terminal;
 import com.trips.tripsspringboot.service.ITerminalService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,13 +17,19 @@ public class TerminalController {
         this.terminalService = terminalService;
     }
 
-    @GetMapping("/getAllTerminal")
+    @GetMapping("/terminales")
     public List<Terminal> getAll(){
         return terminalService.getAll();
     }
 
-    @GetMapping("/getOneTerminal/{idTerminal}")
-    public Optional<Terminal> getOneById(@PathVariable("idTerminal") long idTerminal){
-        return terminalService.getOneById(idTerminal);
+    @GetMapping("/terminales/{id}")
+    public Optional<Terminal> getOneById(@PathVariable("id") long id){
+        return terminalService.getOneById(id);
+    }
+
+    @PostMapping("/terminales")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Terminal create(@RequestBody Terminal terminal){
+        return terminalService.create(terminal);
     }
 }

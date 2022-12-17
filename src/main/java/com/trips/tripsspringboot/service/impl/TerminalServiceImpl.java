@@ -28,4 +28,9 @@ public class TerminalServiceImpl implements ITerminalService {
     public Optional<Terminal> getOneById(long idTerminal){
         return terminalRepository.findById(idTerminal);
     }
+
+    @Override
+    public Terminal create(Terminal terminal) {
+        return terminalRepository.save(terminal);
+    }
 }

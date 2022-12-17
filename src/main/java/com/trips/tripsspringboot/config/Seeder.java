@@ -1,5 +1,6 @@
 package com.trips.tripsspringboot.config;
 
+import com.trips.tripsspringboot.entity.Autobus;
 import com.trips.tripsspringboot.entity.Cliente;
 import com.trips.tripsspringboot.entity.Terminal;
 import com.trips.tripsspringboot.repository.IAutobusRepository;

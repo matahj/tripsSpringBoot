@@ -27,4 +27,9 @@ public class ClienteServiceImpl implements IClienteService {
         return clienteRepository.findById(id);
     }
 
+    @Override
+    public Cliente create(Cliente cliente) {
+        return clienteRepository.save(cliente);
+    }
+
 }
