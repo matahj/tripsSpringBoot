@@ -15,6 +15,7 @@ public interface IClienteService {
 
     Cliente create(Cliente cliente);
 
-    void delete(long id);
+    Cliente update(long id, Cliente cliente);
 
+    void delete(long id);
 }
