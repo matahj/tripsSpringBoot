@@ -8,5 +8,8 @@ import java.util.Optional;
 public interface ITerminalService {
     List<Terminal> getAll();
     Optional<Terminal> getOneById(long idTerminal);
+    public Terminal findOneByLocalidadAndDireccion(String localidad, String direccion);
     Terminal create(Terminal terminal);
+    public void delete(long id);
+    public Terminal update(long id, Terminal terminal);
 }

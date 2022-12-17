@@ -11,23 +11,36 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @RestController
+@RequestMapping("/terminales")
 public class TerminalController {
 
     private ITerminalService terminalService;
 
-    @GetMapping("/terminales")
+    @GetMapping
     public List<Terminal> getAll(){
         return terminalService.getAll();
     }
 
-    @GetMapping("/terminales/{id}")
+    @GetMapping("/{id}")
     public Optional<Terminal> getOneById(@PathVariable("id") long id){
         return terminalService.getOneById(id);
     }
 
-    @PostMapping("/terminales")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Terminal create(@RequestBody Terminal terminal){
         return terminalService.create(terminal);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Terminal update(@PathVariable("id") long id, @RequestBody Terminal terminal){
+        return terminalService.update(id, terminal);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable("id") long id){
+        terminalService.delete(id);
     }
 }
