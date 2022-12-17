@@ -6,12 +6,16 @@ import com.trips.tripsspringboot.entity.Terminal;
 import com.trips.tripsspringboot.repository.IAutobusRepository;
 import com.trips.tripsspringboot.repository.IClienteRepository;
 import com.trips.tripsspringboot.repository.ITerminalRepository;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+@Slf4j
+@AllArgsConstructor
 @Component
 public class Seeder implements CommandLineRunner {
 
@@ -19,15 +23,10 @@ public class Seeder implements CommandLineRunner {
     private ITerminalRepository terminalRepository;
     private IAutobusRepository autobusRepository;
 
-    @Autowired
-    public Seeder(IClienteRepository clienteRepository, ITerminalRepository terminalRepository, IAutobusRepository autobusRepository){
-        this.clienteRepository = clienteRepository;
-        this.terminalRepository = terminalRepository;
-        this.autobusRepository = autobusRepository;
-    }
-
     @Override
     public void run(String... args) throws Exception {
+
+        log.info("Inicializando Base de Datos...");
 
         Cliente pedroa = clienteRepository.findClienteByEmail("pedroa@trips.com");
         if(pedroa == null){
