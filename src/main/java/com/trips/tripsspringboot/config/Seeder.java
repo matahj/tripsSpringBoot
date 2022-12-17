@@ -64,5 +64,6 @@ public class Seeder implements CommandLineRunner {
             a1.setTerminal(terminalRepository.findTerminalByLocalidadAndDireccion("CDMX","Sur"));
         }
         */
+        log.info("Base de datos inicializada.");
     }
 }

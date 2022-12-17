@@ -18,38 +18,57 @@ public class clienteController {
     private IClienteService clienteService;
 
     @GetMapping("/clientes")
+    @ResponseStatus(HttpStatus.OK)
     public List<Cliente> getAll(){
         return clienteService.getAll();
     }
 
     @GetMapping("/clientes/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public Optional<Cliente> getOneById(@PathVariable("id") long id){
         return clienteService.getOneById(id);
     }
 
     @PostMapping("/clientes")
-    @ResponseStatus(HttpStatus.CREATED)
     public Cliente create(@RequestBody Cliente cliente){
-        return clienteService.create(cliente);
 
-    }
 
-    @DeleteMapping("/clientes/{id}")
-    public void delete(@PathVariable("id") long id){
-        clienteService.delete(id);
-        log.info("Cliente {} borrado", id);
+        Cliente c = clienteService.getOneByEmail(cliente.getEmail());
+        if(c==null){
+            return clienteService.create(cliente);
+        }else {
+            return null;
+        }
     }
 
     @PutMapping("/clientes/{id}")
     public Cliente update(@PathVariable("id") long id, @RequestBody Cliente cliente){
         Optional<Cliente> anterior = clienteService.getOneById(id);
 
-        Cliente nuevo = anterior.get();
-        nuevo.setNombreCompletoCl(cliente.getNombreCompletoCl());
-        nuevo.setEmail(cliente.getEmail());
-        nuevo.setTelefono(cliente.getTelefono());
+        if(anterior.isPresent()){
+            Cliente nuevo = anterior.get();
+            nuevo.setNombreCompletoCl(cliente.getNombreCompletoCl());
+            nuevo.setEmail(cliente.getEmail());
+            nuevo.setTelefono(cliente.getTelefono());
 
-        return clienteService.create(nuevo);
+            return clienteService.create(nuevo);
+        }else {
+            return null;
+        }
+
+    }
+
+    @DeleteMapping("/clientes/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void delete(@PathVariable("id") long id){
+        Optional<Cliente> c = clienteService.getOneById(id);
+
+        if( !c.isEmpty() ){
+            clienteService.delete(id);
+            log.info("Cliente {} borrado", id);
+        }else {
+            log.info("Cliente {} NO ENCONTRADO", id);
+        }
     }
 
 }

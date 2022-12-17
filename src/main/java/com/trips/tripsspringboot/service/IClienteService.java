@@ -6,8 +6,12 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IClienteService {
+
     List<Cliente> getAll();
+
     Optional<Cliente> getOneById(long id);
+
+    Cliente getOneByEmail(String email);
 
     Cliente create(Cliente cliente);
 
