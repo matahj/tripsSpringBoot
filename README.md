@@ -42,17 +42,21 @@ http://localhost:8080/clientes
 http://localhost:8080/clientes/{id}
 http://localhost:8080/terminales
 http://localhost:8080/terminales/{id}
+http://localhost:8080/autobuses
+http://localhost:8080/autobuses/{id}
 ~~~
 
 POST
 ~~~
 http://localhost:8080/clientes
 http://localhost:8080/terminales
+http://localhost:8080/autobuses
 ~~~
 
 PUT, DELETE
 ~~~
 http://localhost:8080/clientes/{id}
 http://localhost:8080/terminales/{id}
+http://localhost:8080/autobuses/{id}
 ~~~
 
