@@ -12,7 +12,7 @@ import java.util.Optional;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/clientes")
-public class clienteController {
+public class ClienteController {
 
     private IClienteService clienteService;
 
